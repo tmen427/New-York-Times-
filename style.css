@@ -1,0 +1,40 @@
+
+.jumbotron {
+    text-align: center; 
+    font-weight: bold; 
+    color: white; 
+    background: rgb(74, 88, 180);
+}
+
+#container {
+    margin: 0 auto; 
+    max-width: 960px;
+    margin-bottom: 100px;
+}
+
+.form-group {
+     padding: 5px 0px;
+
+}
+
+#results {
+    padding-top: 50px; 
+}
+
+#title{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#author{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#date{
+    font-size: 14px;
+}
+
+#placeholder{
+    display: none;
+}
