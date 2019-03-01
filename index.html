@@ -1,74 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <title>New York Times Search</title>
+  <title>New York Times Search</title>
 
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <link rel='stylesheet' type='text/css' href='style.css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 
 
 <body>
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4"><img src="icon.png" style="width:80px;filter:invert(1)"> New York Times Search</h1>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><img src="icon.png" style="width:80px;filter:invert(1)"> New York Times Search</h1>
 
+    </div>
+  </div>
+
+  <div id="container">
+    <h5><img src="parameters.png" style="width:25px;padding-right:5px;">Search Parameters</h5>
+    <form>
+      <div class="form-group">
+        <label for="formGroupSearchTerm">Search Term:</label>
+        <input type="text" class="form-control" id="search-term" placeholder="Input Search Term">
+      </div>
+      <div class="form-group">
+        <label for="formGroupNumber">Number of Records to Retrieve:</label>
+        <input type="text" class="form-control" id="number" placeholder="Input A Number">
+      </div>
+      <div class="form-group">
+        <label for="formGroupStartYear">Start Year(Optional):</label>
+        <input type="text" class="form-control" id="start-year" placeholder="Input a Start Year">
+      </div>
+      <div class="form-group">
+        <label for="formGroupEndYear">End Year(Optional):</label>
+        <input type="text" class="form-control" id="end-year" placeholder="Input an End Year">
+      </div>
+      <button class="btn btn-outline-secondary" id="search" type="button"><img src="search.png"
+          style="width: 20px; padding-right: 3px;">Search</button>
+      <button class="btn btn-outline-secondary" id="clear" type="button"><img src="trash.svg"
+          style="width:20px; padding-right:3px"> Clear Results</button>
+    </form>
+    <div id="results">
+      <h5><img src="grid.png" style="width: 30px; padding:5px;">Top Articles </h5>
+      <div id='articles'>
+        <div id="placeholder">
+          <div id="title">This is the title of the articles</div>
+          <div id="author">This is the authors of the articles</div>
+          <div id="date">This is the date the article was published</div>
+          <div id="byline">This is the byline of the article</div>
+          <div id="link"><a href="#">This is a link to the article</a></div>
         </div>
       </div>
 
-    <div id="container">
-        <h5><img src="parameters.png" style="width:25px;padding-right:5px;">Search Parameters</h5>
-        <form>
-            <div class="form-group">
-              <label for="formGroupSearchTerm">Search Term:</label>
-              <input type="text" class="form-control" id="search-term" placeholder="Input Search Term">
-            </div>
-            <div class="form-group">
-              <label for="formGroupNumber">Number of Records to Retrieve:</label>
-              <input type="text" class="form-control" id="number" placeholder="Input A Number">
-            </div>
-            <div class="form-group">
-                <label for="formGroupStartYear">Start Year(Optional):</label>
-                <input type="text" class="form-control" id="start-year" placeholder="Input a Start Year">
-              </div>
-              <div class="form-group">
-                <label for="formGroupEndYear">End Year(Optional):</label>
-                <input type="text" class="form-control" id="end-year" placeholder="Input an End Year">
-              </div>
-              <button class="btn btn-outline-secondary" id="search" type="button"><img src="search.png" style="width: 20px; padding-right: 3px;">Search</button>
-              <button class="btn btn-outline-secondary" id="clear" type="button"><img src="trash.svg" style="width:20px; padding-right:3px"> Clear Results</button>
-          </form>
-<div id="results">
-<h5><img src="grid.png" style="width: 30px; padding:5px;" >Top Articles </h5>
-<div id='articles'>
-    <div id="placeholder">
-        <div id="title">This is the title of the articles</div>
-        <div id="author">This is the authors of the articles</div>
-        <div id="date">This is the date the article was published</div>
-        <div id="byline">This is the byline of the article</div>
-        <div id="link"><a href="#">This is a link to the article</a></div>
-    </div>
-      </div>
-
 
     </div>
 
 
-<script>
-$( document ).ready(function() {
+    <script>
+      $(document).ready(function () {
 
- // AHMED - OUR CODE IS GOING TO GO HERE
-});
+        event.preventDefault();
 
-</script>
+        queryURL = '';
+
+        $.ajax({url: queryURL, method: 'GET'}).then(function(response){
+
+
+        });
+
+
+        // AHMED - OUR CODE IS GOING TO GO HERE
+      });
+
+    </script>
 
 
 </body>
+
 </html>
