@@ -67,13 +67,25 @@
 
     <script>
       $(document).ready(function () {
-
+       
         event.preventDefault();
-
-        queryURL = '';
-
-        $.ajax({url: queryURL, method: 'GET'}).then(function(response){
-
+        var queryString = encodeURI($('#search-term'));
+        &begin_date=20120101&end_date=20121231
+        var startYear = encodeURI($('#start-year')) + '0101';
+        var endYear = encodeURI($('#end-year')) + '1231';
+        var numberOfArticles = encodeURI($('#number'));
+        var queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&fq=section_name:("'
+          + queryString + '")'
+          + '&begin_date=' + beginDate
+          + '&end_date=' + endDate
+          + '&api-key=tTqPx6w4d3d9Nh64hxpS1zYI1gkuNSjE';
+        $.ajax({ url: queryURL, method: 'GET' }).then(function (response) {
+            $("#title").text(response.response.docs[I].headline.main);
+            $("#author").text(response.response.docs[I].byline.original);
+            $("#date").text(response.response.docs[I].pubdate);
+            $("#byline").text(response.response.docs[I].snippet);
+            $("#link").html("<a href='#' id='linktoart'></a>");
+            $("#linktoart").attr("href", response.response.docs[I].web_url);
 
         });
 
