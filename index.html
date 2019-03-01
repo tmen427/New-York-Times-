@@ -87,12 +87,28 @@
 
             for (var i = 0; i < response.response.docs.length; i++) {
 
+<<<<<<< HEAD
               $("#title").text(response.response.docs[i].headline.main);
               $("#author").text(response.response.docs[i].byline.original);
               $("#date").text(response.response.docs[i].pubdate);
               $("#byline").text(response.response.docs[i].snippet);
               $("#link").html("<a href='#' id='linktoart'>Read more here.</a>");
               $("#linktoart").attr("href", response.response.docs[i].web_url);
+=======
+        $.ajax({ url: queryURL, method: 'GET' }).then(function (response) {
+          console.log(response);
+
+          $("#title").text(response.response.docs[I].headline.main);
+            $("#author").text(response.response.docs[I].byline.original);
+            $("#date").text(response.response.docs[I].pubdate);
+            $("#byline").text(response.response.docs[I].snippet);
+            $("#link").html("<a href='#' id='linktoart'>Read more here.</a>");
+            $("#linktoart").attr("href", response.response.docs[I].web_url);
+
+
+
+        });
+>>>>>>> 7e3130852c757416fdd0bd57b29f0f29628f8960
 
             }
           });
