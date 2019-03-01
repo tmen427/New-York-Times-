@@ -68,30 +68,36 @@
     <script>
       $(document).ready(function () {
 
+        $('#search').on('click', function () {
+          var queryString = encodeURI($('#search-term').val());
 
-        var queryString = encodeURI($('#search-term'));
+          var startYear = encodeURI($('#start-year').val()) + '0101';
 
-        //&begin_date=20120101&end_date=20121231
+          var endYear = encodeURI($('#end-year').val()) + '1231';
 
-        var startYear = encodeURI($('#start-year')) + '0101';
+          var numberOfArticles = encodeURI($('#number').val());
 
-        var endYear = encodeURI($('#end-year')) + '1231';
+          var queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q='
+            + queryString + '&fq=section_name:("World")'
+            + '&begin_date=' + startYear
+            + '&end_date=' + endYear
+            + '&api-key=tTqPx6w4d3d9Nh64hxpS1zYI1gkuNSjE';
 
-        var numberOfArticles = encodeURI($('#number'));
+          $.ajax({ url: queryURL, method: 'GET' }).then(function (response) {
 
-        var queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&fq=section_name:("'
-          + queryString + '")'
-          + '&begin_date=' + startYear
-          + '&end_date=' + endYear
-          + '&api-key=tTqPx6w4d3d9Nh64hxpS1zYI1gkuNSjE';
+            for (var i = 0; i < response.response.docs.length; i++) {
 
-        $.ajax({ url: queryURL, method: 'GET' }).then(function (response) {
-          console.log(response);
+              $("#title").text(response.response.docs[i].headline.main);
+              $("#author").text(response.response.docs[i].byline.original);
+              $("#date").text(response.response.docs[i].pubdate);
+              $("#byline").text(response.response.docs[i].snippet);
+              $("#link").html("<a href='#' id='linktoart'>Read more here.</a>");
+              $("#linktoart").attr("href", response.response.docs[i].web_url);
+
+            }
+          });
 
         });
-
-
-        // AHMED - OUR CODE IS GOING TO GO HERE
       });
 
     </script>
