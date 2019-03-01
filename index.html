@@ -81,8 +81,8 @@
 
         var queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&fq=section_name:("'
           + queryString + '")'
-          + '&begin_date=' + beginDate
-          + '&end_date=' + endDate
+          + '&begin_date=' + startYear
+          + '&end_date=' + endYear
           + '&api-key=tTqPx6w4d3d9Nh64hxpS1zYI1gkuNSjE';
 
         $.ajax({ url: queryURL, method: 'GET' }).then(function (response) {
